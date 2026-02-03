@@ -4,15 +4,23 @@ Tiimi: Aitanova Azaliia, Karppinen-van Drongelen Riikka, Kumar Tejinder, Nguyen 
 
 ## Johdanto
 
-Johdantoon kirjoitetaan lyhyt, ytimekäs kuvaus siitä, mikä on projektin aihe,
-kuka on asiakas (käyttäjä), mitä hän haluaa ja saa järjestelmältä, mitä
-tekniikoita käytetään ja mitä konkreettisesti on valmiina, kun projekti päättyy.
+Tässä projektissa toteutetaan lipunmyyntijärjestelmä nimeltä TicketGuru. Järjestelmän asiakas on lipputoimisto, joka myy lippuja erilaisiin tapahtumiin fyysisessä myyntipisteessään. Järjestelmä on tarkoitettu lipunmyyjien käyttöön sekä tapahtumien ovella tapahtuvaan lipuntarkastukseen.
 
--   Järjestelmän tarkoitus ja tiivis kuvaus siitä, mistä on kyse ja kenelle järjestelmä on tarkoitettu.
--   Toteutus- ja toimintaympäristö lyhyesti:  
-    -   Palvelinpuolen ratkaisut ja teknologiat (esim. palvelinteknologia, mikä tietokantajärjestelmä on käytössä)
-    -   Käyttöliittymäratkaisut ja teknologiat (esim. päätelaitteet: puhelin,
-    täppäri, desktop)
+TicketGuru-järjestelmän avulla lipputoimisto voi määritellä järjestelmään myytävät tapahtumat ja hallita niihin liittyvää lipunmyyntiä. Lipunmyyjä myy lippuja järjestelmän kautta ja tulostaa ne asiakkaalle myyntipisteessä. Ennakkomyynnin päätyttyä jäljelle jääneet liput voidaan tulostaa ovella myytäviksi. Jokaisessa lipussa on yksilöllinen ja helposti tarkastettava koodi, jonka avulla lippu voidaan tapahtuman ovella merkitä käytetyksi ja estää väärinkäyttö.
+
+Projektin ensisijainen käyttäjä on lipunmyyjä, ja järjestelmä on suunniteltu sujuvaan ja nopeaan käyttöön myyntitilanteessa. Järjestelmän jatkokehityksenä on tarkoitus toteuttaa verkkokauppa, jonka kautta loppuasiakkaat voivat ostaa lippuja itse, mutta tämä ominaisuus ei kuulu projektin nykyiseen toteutukseen.
+
+### Toteutus- ja toimintaympäristö
+
+TicketGuru toteutetaan selainpohjaisena sovelluksena. Palvelinpuolen toteutus tehdään Java Spring Boot -kehystä käyttäen. Palvelin tarjoaa järjestelmän toiminnot REST-rajapinnan kautta ja vastaa sovelluksen liiketoimintalogiikasta, lipunmyyntiin liittyvistä toiminnoista sekä tiedon käsittelystä ja tallennuksesta. Järjestelmä käyttää tietokantaa tapahtumien, lippujen ja myyntitietojen tallentamiseen.
+
+Käyttöliittymä toteutetaan web-teknologioilla, ja sitä käytetään ensisijaisesti lipunmyyntipisteen työasemalla, kuten pöytäkoneella tai kannettavalla tietokoneella. Järjestelmä tukee myös lipuntarkastusta tapahtuman ovella, jossa lipuissa olevat koodit tarkastetaan ja merkitään käytetyiksi.
+
+Projektin päättyessä valmiina on toimiva lipunmyyntijärjestelmä, jolla voidaan:
+
+- Määritellä ja hallita tapahtumia
+- Myydä ja tulostaa lippuja
+- Tarkastaa ja merkitä liput käytetyiksi tapahtuman ovella
 
 ## Järjestelmän määrittely
 
