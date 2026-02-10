@@ -1,4 +1,4 @@
-# Projektin nimi
+# Projektin nimi TicketGuru
 
 Tiimi: Aitanova Azaliia, Karppinen-van Drongelen Riikka, Kumar Tejinder, Nguyen Khoa, Paajaste Maximus, Regnér Joel
 

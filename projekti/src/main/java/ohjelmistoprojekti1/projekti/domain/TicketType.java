@@ -11,12 +11,17 @@ public class TicketType {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    // lipputyypin kuvaus (esim. Aikuinen, Lapsi, Opiskelija)
     private String description;
 
+    // price kuuluu TicketTypeen, ei Eventiin
     private BigDecimal price;
 
     @ManyToOne
     @JoinColumn(name = "event_id")
+    // FK: event_id -> Event.id
+    // monta TicketTypea voi kuulua yhteen Eventiin
+    
     private Event event;
 
     @OneToMany(mappedBy = "ticketType")
