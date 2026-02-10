@@ -11,8 +11,12 @@ public class AppUser {
 
     private Long id;
     @Column(unique = true)
+    // käyttäjätunnus
+    
     private String username;
+    // salasana hash-muodossa
     private String passwordHash;
+    // käyttäjän rooli järjestelmässä
     private String role; // ADMIN / LIPUNMYYJÄ / OVITARKASTAJA 
 
     // getters & setters

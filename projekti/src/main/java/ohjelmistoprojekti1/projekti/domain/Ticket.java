@@ -16,12 +16,19 @@ public class Ticket {
     // FK: ticket_type_id -> TicketType.id
     @ManyToOne
     @JoinColumn(name = "ticket_type_id")
+    // suhde TicketType-tauluun
+    // monta Ticketiä voi kuulua yhteen TicketTypeen
+    // FK tässä taulussa: ticket_type_id
     private TicketType ticketType;
 
     // FK: sale_id -> Sale.id ( ovilippu voi olla ilman myyntiä)
 
     @ManyToOne
     @JoinColumn(name = "sale_id", nullable = true)
+    // suhde Sale-tauluun
+    // yksi myynti voi sisältää monta lippua
+    // mutta lippu voi olla myös ilman myyntiä (esim. ovilippu)
+    // FK tässä taulussa: sale_id
     private Sale sale; 
 
     @Column(unique = true)

@@ -5,13 +5,13 @@ import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import java.util.List;
 
-@Entity
+@Entity // tietokantataulu SALE (myyntitapahtuma)
 public class Sale {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
+    // myynnin ajankohta
     private LocalDateTime createdAt;
 
     private BigDecimal totalAmount;
@@ -19,10 +19,16 @@ public class Sale {
     // FK: seller_id -> AppUser.id
     @ManyToOne
     @JoinColumn(name = "seller_id")
+    // suhde käyttäjään (myyjään)
+    // monta Salea voi kuulua yhdelle AppUserille
+    // FK on tässä taulussa: seller_id
+
     private AppUser seller;
 
     // Yksi myyntitapahtuma sisältää monta lippua.
     @OneToMany(mappedBy = "sale")
+    // 1 Sale -> monta Ticketiä (*)
+    // FK on Ticket-taulussa (sale_id)
     private List<Ticket> tickets;
 
     // getters & setters

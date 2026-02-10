@@ -11,12 +11,15 @@ public class Event {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    // sarakkeet: name, venue, city, start_time
     private String name;
     private String venue;
     private String city;
     private LocalDateTime startTime;
 
     @OneToMany(mappedBy = "event")
+    // suhde TicketType-tauluun
+    // 1 Event -> monta TicketTypea (*)
     private List<TicketType> ticketTypes;
 
     // Getters and setters
