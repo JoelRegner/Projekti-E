@@ -26,7 +26,7 @@ Projektin päättyessä valmiina on toimiva lipunmyyntijärjestelmä, jolla void
 
 Vaatimukset
  * Käyttäjien kirjaaminen järjestelmään
- * Hallita tapahtumia ja lipputyyppejä
+ * Tapahtumien ja lipputyyppien hallinta
  * Lippujen myynti ja tulostus
  * Lipuille yksilöllisen koodin luonti
  * Lipun tarkistus ja käytetyksi merkkaus
