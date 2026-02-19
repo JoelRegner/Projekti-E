@@ -152,3 +152,30 @@ User-taulu sisältää järjestelmän käyttäjät. Käyttäjä voi olla lipunmy
 | username      | varchar    | Käyttäjätunnus      |
 | password_hash | varchar    | Salasanan hash      |
 | role          | varchar    | Käyttäjän rooli     |
+
+## Rajapinnan kuvaus
+
+**Base-URL:** http://localhost:8080
+
+### Tapahtuman poisto: DELETE /api/events/{id}
+
+**Kuvaus:** Poistaa yksittäisen tapahtuman annetulla tunnisteella.
+
+**Polkuparametrit:** 
+
+| Nimi | Tyyppi | Kuvaus |
+|------|--------|--------|
+| id   | Long   | Poistettavan tapahtuman yksilöllinen tunniste |
+
+**Query-parametrit:** Ei käytössä
+
+**Request Body:** Ei sisältöä
+
+**Vastaus:** 
+
+| Tilakoodi | Kuvaus |
+|-----------|--------|
+| 204 No Content | Poisto onnistui |
+| 404 Not Found  | Tapahtumaa ei löytynyt |
+
+**Esimerkkipyyntö:** DELETE http://localhost:8080/api/events/5

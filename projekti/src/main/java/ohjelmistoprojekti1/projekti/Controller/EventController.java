@@ -27,4 +27,10 @@ public class EventController {
     public Event createEvent(@RequestBody Event event) {
         return eventRepository.save(event);
     }
+
+    // DELETE http://localhost:8080/api/events/{id}
+    @DeleteMapping("/{id}")
+    public void deleteEvent(@PathVariable Long id) {
+        eventRepository.deleteById(id);
+    }
 }
