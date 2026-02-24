@@ -228,4 +228,50 @@ Hakee kaikki tapahtumat tietokannasta.
 #### Esimerkkipyyntö:
 GET http://localhost:8080/api/events
 
+## Hae tapahtuma id:llä
+GET /api/events/{id}
+Kuvaus: Hakee yksittäisen tapahtuman tunnisteen perusteella.
+
+Nimi | Tyyppi | Kuvaus
+id | Long | Haettavan tapahtuman tunniste
+
+Query-parametrit: Ei käytössä
+Request Body: Ei sisältöä
+
+Tilakoodi | Kuvaus
+200 OK | Tapahtuma löytyi
+404 Not Found | Tapahtumaa ei löytynyt
+
+#### Esimerkkipyyntö:
+GET http://localhost:8080/api/events/1
+
+## Tapahtuman muokkaus
+
+PUT /api/events/{id}
+
+Kuvaus: Päivittää olemassa olevan tapahtuman tiedot.
+
+Nimi | Tyyppi | Kuvaus
+id | Long | Päivitettävän tapahtuman tunniste
+
+Query-parametrit: Ei käytössä
+
+Request Body (JSON):
+
+```json
+{
+  "name": "Kevätmessut 2026 päivitetty",
+  "venue": "Messukeskus",
+  "city": "Helsinki",
+  "startTime": "2026-04-10T12:00:00"
+}
+```
+
+Tilakoodi | Kuvaus
+200 OK | Päivitys onnistui
+404 Not Found | Tapahtumaa ei löytynyt
+
+#### Esimerkkipyyntö:
+PUT http://localhost:8080/api/events/1
+
 
