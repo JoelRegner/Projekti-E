@@ -228,35 +228,47 @@ Hakee kaikki tapahtumat tietokannasta.
 #### Esimerkkipyyntö:
 GET http://localhost:8080/api/events
 
-## Hae tapahtuma id:llä
-GET /api/events/{id}
-Kuvaus: Hakee yksittäisen tapahtuman tunnisteen perusteella.
 
-Nimi | Tyyppi | Kuvaus
-id | Long | Haettavan tapahtuman tunniste
+### Hae tapahtuma ID:llä
 
-Query-parametrit: Ei käytössä
-Request Body: Ei sisältöä
+**Endpoint:** `GET /api/events/{id}`  
+**Kuvaus:** Hakee yksittäisen tapahtuman tunnisteen perusteella.
 
-Tilakoodi | Kuvaus
-200 OK | Tapahtuma löytyi
-404 Not Found | Tapahtumaa ei löytynyt
+#### Path-parametrit
 
-#### Esimerkkipyyntö:
+| Nimi | Tyyppi | Kuvaus |
+|------|--------|--------|
+| id   | Long   | Haettavan tapahtuman tunniste |
+
+- **Query-parametrit:** Ei käytössä  
+- **Request body:** Ei sisältöä  
+
+#### Vastaukset
+
+| Tilakoodi | Kuvaus |
+|----------|--------|
+| 200 OK   | Tapahtuma löytyi |
+| 404 Not Found | Tapahtumaa ei löytynyt |
+
+#### Esimerkkipyyntö
 GET http://localhost:8080/api/events/1
+
 
 ## Tapahtuman muokkaus
 
 PUT /api/events/{id}
 
-Kuvaus: Päivittää olemassa olevan tapahtuman tiedot.
+**Kuvaus:** Päivittää olemassa olevan tapahtuman tiedot.
 
-Nimi | Tyyppi | Kuvaus
-id | Long | Päivitettävän tapahtuman tunniste
+**Parametrit**
 
-Query-parametrit: Ei käytössä
+| Nimi | Tyyppi | Kuvaus |
+|------|--------|--------|
+| id | Long | Päivitettävän tapahtuman tunniste |
 
-Request Body (JSON):
+- Query-parametrit: Ei käytössä  
+
+**Request Body (JSON):**
 
 ```json
 {
@@ -267,9 +279,11 @@ Request Body (JSON):
 }
 ```
 
-Tilakoodi | Kuvaus
-200 OK | Päivitys onnistui
-404 Not Found | Tapahtumaa ei löytynyt
+
+| Tilakoodi | Kuvaus |
+|-----------|--------|
+| 200 OK | Päivitys onnistui |
+| 404 Not Found | Tapahtumaa ei löytynyt |
 
 #### Esimerkkipyyntö:
 PUT http://localhost:8080/api/events/1
