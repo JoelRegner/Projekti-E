@@ -155,9 +155,15 @@ User-taulu sisältää järjestelmän käyttäjät. Käyttäjä voi olla lipunmy
 
 ## Rajapinnan kuvaus
 
+Järjestelmä käyttää Spring Boot -backendia ja H2-kehitystietokantaa.
+Tietokanta nollautuu, kun sovellus sammutetaan.
+
+Rajapinta mahdollistaa tapahtumien lisäämisen, hakemisen ja poistamisen.
+
 **Base-URL:** http://localhost:8080
 
 ### Tapahtuman poisto: DELETE /api/events/{id}
+
 
 **Kuvaus:** Poistaa yksittäisen tapahtuman annetulla tunnisteella.
 
@@ -179,3 +185,47 @@ User-taulu sisältää järjestelmän käyttäjät. Käyttäjä voi olla lipunmy
 | 404 Not Found  | Tapahtumaa ei löytynyt |
 
 **Esimerkkipyyntö:** DELETE http://localhost:8080/api/events/5
+
+## Tapahtuman lisäys
+POST /api/events
+
+Kuvaus: Lisää uusi tapahtuma järjestelmään.
+
+
+### Request Body (JSON)
+
+```json
+{
+  "name": "Kevätmessut 2026",
+  "venue": "Messukeskus",
+  "city": "Helsinki (Pasila)",
+  "startTime": "2026-04-10T10:00:00"
+}
+```
+| Tilakoodi       | Kuvaus                        |
+| --------------- | ----------------------------- |
+| 201 Created     | Tapahtuma luotu onnistuneesti |
+| 400 Bad Request | Virheellinen syöte            |
+
+#### Esimerkkipyyntö:
+POST http://localhost:8080/api/events
+
+## Hae kaikki tapahtumat
+GET /api/events
+
+Kuvaus:
+Hakee kaikki tapahtumat tietokannasta.
+
+| Nimi | Tyyppi | Kuvaus                                |
+| ---- | ------ | ------------------------------------- |
+| city | String | Suodattaa tapahtumat kaupungin mukaan |
+| name | String | Suodattaa nimen mukaan                |
+
+| Tilakoodi | Kuvaus             |
+| --------- | ------------------ |
+| 200 OK    | Lista tapahtumista |
+
+#### Esimerkkipyyntö:
+GET http://localhost:8080/api/events
+
+
