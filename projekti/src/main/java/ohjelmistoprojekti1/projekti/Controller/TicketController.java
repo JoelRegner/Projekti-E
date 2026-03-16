@@ -1,5 +1,6 @@
 package ohjelmistoprojekti1.projekti.Controller;
 
+
 import java.util.List;
 
 import org.springframework.http.HttpStatus;
@@ -17,6 +18,7 @@ import ohjelmistoprojekti1.projekti.repository.TicketTypeRepository;
 public class TicketController {
 
     private final TicketRepository ticketRepository;
+
     private final TicketTypeRepository ticketTypeRepository;
 
     public TicketController(TicketRepository ticketRepository, TicketTypeRepository ticketTypeRepository) {
@@ -53,3 +55,4 @@ public class TicketController {
         return ResponseEntity.status(HttpStatus.CREATED).body(saved);
     }
 }
+
