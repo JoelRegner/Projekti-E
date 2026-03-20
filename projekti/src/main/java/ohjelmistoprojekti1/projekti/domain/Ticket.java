@@ -1,20 +1,18 @@
 package ohjelmistoprojekti1.projekti.domain;
 
+import jakarta.validation.constraints.*;
 import jakarta.persistence.*;
 import java.time.LocalDateTime;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
-
-
-@Entity 
+@Entity
 
 public class Ticket {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
 
     // FK: ticket_type_id -> TicketType.id
     @ManyToOne
@@ -33,11 +31,15 @@ public class Ticket {
     // yksi myynti voi sisältää monta lippua
     // mutta lippu voi olla myös ilman myyntiä (esim. ovilippu)
     // FK tässä taulussa: sale_id
-    private Sale sale; 
+    private Sale sale;
 
+    @NotBlank
+    @Size(min = 5, max = 50)
     @Column(unique = true)
     private String code;
 
+    @NotBlank
+    @Pattern(regexp = "VALID|USED")
     private String status; // VALID / USED
 
     private LocalDateTime usedAt; // aika, jolloin lippu on käytetty
@@ -91,6 +93,5 @@ public class Ticket {
     public void setUsedAt(LocalDateTime usedAt) {
         this.usedAt = usedAt;
     }
-
 
 }

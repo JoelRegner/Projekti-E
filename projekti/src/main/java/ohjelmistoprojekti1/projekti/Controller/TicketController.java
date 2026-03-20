@@ -1,12 +1,12 @@
 package ohjelmistoprojekti1.projekti.Controller;
 
-
 import java.util.List;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import jakarta.validation.Valid;
 import ohjelmistoprojekti1.projekti.domain.Ticket;
 import ohjelmistoprojekti1.projekti.domain.TicketType;
 import ohjelmistoprojekti1.projekti.dto.CreateTicketRequest;
@@ -32,13 +32,7 @@ public class TicketController {
     }
 
     @PostMapping
-    public ResponseEntity<?> createTicket(@RequestBody CreateTicketRequest req) {
-        if (req.getTicketTypeId() == null
-                || req.getCode() == null || req.getCode().isBlank()
-                || req.getStatus() == null || req.getStatus().isBlank()) {
-            return ResponseEntity.badRequest().body("ticketTypeId, code and status are required");
-        }
-
+    public ResponseEntity<?> createTicket(@Valid @RequestBody CreateTicketRequest req) {
         TicketType tt = ticketTypeRepository.findById(req.getTicketTypeId()).orElse(null);
         if (tt == null) {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body("TicketType not found: " + req.getTicketTypeId());
@@ -55,4 +49,3 @@ public class TicketController {
         return ResponseEntity.status(HttpStatus.CREATED).body(saved);
     }
 }
-
