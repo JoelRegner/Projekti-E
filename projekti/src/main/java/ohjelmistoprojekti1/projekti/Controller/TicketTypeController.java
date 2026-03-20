@@ -6,6 +6,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import jakarta.validation.Valid;
 import ohjelmistoprojekti1.projekti.domain.Event;
 import ohjelmistoprojekti1.projekti.domain.TicketType;
 import ohjelmistoprojekti1.projekti.dto.CreateTicketTypeRequest;
@@ -30,13 +31,7 @@ public class TicketTypeController {
     }
 
     @PostMapping
-    public ResponseEntity<?> createTicketType(@RequestBody CreateTicketTypeRequest req) {
-        if (req.getDescription() == null || req.getDescription().isBlank()
-                || req.getPrice() == null
-                || req.getEventId() == null) {
-            return ResponseEntity.badRequest().body("description, price and eventId are required");
-        }
-
+    public ResponseEntity<?> createTicketType(@Valid @RequestBody CreateTicketTypeRequest req) {
         Event event = eventRepository.findById(req.getEventId()).orElse(null);
         if (event == null) {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Event not found: " + req.getEventId());

@@ -1,12 +1,11 @@
 package ohjelmistoprojekti1.projekti.domain;
 
+import jakarta.validation.constraints.*;
 import jakarta.persistence.*;
 import java.math.BigDecimal;
 import java.util.List;
 
-
 import com.fasterxml.jackson.annotation.JsonIgnore;
-
 
 @Entity
 public class TicketType {
@@ -16,9 +15,13 @@ public class TicketType {
     private Long id;
 
     // lipputyypin kuvaus (esim. Aikuinen, Lapsi, Opiskelija)
+    @NotBlank
+    @Size(max = 50)
     private String description;
 
     // price kuuluu TicketTypeen, ei Eventiin
+    @NotNull
+    @DecimalMin(value = "0.0")
     private BigDecimal price;
 
     @ManyToOne
@@ -26,7 +29,7 @@ public class TicketType {
     @JsonIgnore
     // FK: event_id -> Event.id
     // monta TicketTypea voi kuulua yhteen Eventiin
-    
+
     private Event event;
 
     @OneToMany(mappedBy = "ticketType")

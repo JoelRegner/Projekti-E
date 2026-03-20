@@ -1,23 +1,30 @@
 package ohjelmistoprojekti1.projekti.domain;
 
+import jakarta.validation.constraints.*;
 import jakarta.persistence.*;
 
-@Entity 
+@Entity
 public class AppUser {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-
-
     private Long id;
-    @Column(unique = true)
+
     // käyttäjätunnus
-    
+    @NotBlank
+    @Size(min = 3, max = 50)
+    @Column(unique = true)
     private String username;
+
     // salasana hash-muodossa
+    @NotBlank
+    @Size(min = 6, max = 255)
     private String passwordHash;
+
     // käyttäjän rooli järjestelmässä
-    private String role; // ADMIN / LIPUNMYYJÄ / OVITARKASTAJA 
+    @NotBlank
+    @Pattern(regexp = "ADMIN|LIPUNMYYJÄ|OVITARKASTAJA")
+    private String role; // ADMIN / LIPUNMYYJÄ / OVITARKASTAJA
 
     // getters & setters
 
@@ -52,6 +59,5 @@ public class AppUser {
     public void setRole(String role) {
         this.role = role;
     }
-
 
 }
