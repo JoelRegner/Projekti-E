@@ -19,3 +19,19 @@
 
 - Korjataan mahdolliset virheet  
 - Varmistetaan, että autentikointi toimii kaikkien tarvittavien endpointtien kanssa  
+
+
+### Tietokanta (MySQL)
+
+- Asenna MySQL lokaalisti
+- Luo tietokanta
+- Luo käyttäjä ja anna oikeudet
+- Testaa yhteys (esim. MySQL Workbench)
+
+### Spring Boot konfigurointi
+
+- Lisää MySQL dependency (pom.xml)
+- Konfiguroi application.properties
+- Käynnistä backend MySQLä
+- Testaa että sovellus käynnistyy ilman virheitä
+- Testaa CRUD endpoint toimii
