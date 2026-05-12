@@ -418,6 +418,9 @@ Sovellus käyttää Basic Authentication -tunnistautumista.
 | GET | `/api/sales` | Hakee myynnit |
 | POST | `/api/sales` | Luo lipunmyynnin |
 
+### E2E Testit
+E2E-testit toteutettiin Playwrightilla. Testit käynnistävät selaimen, avaavat sovelluksen käyttöliittymän ja testaavat käyttäjän näkökulmasta koko toimintaketjua. Tämän vuoksi ne ovat end-to-end-testejä: testissä mukana ovat frontend, backendin REST-rajapinta ja tietokanta/API-yhteys.
+
 ### Esimerkkipyyntö lipunmyynnin luomiseksi
 ```json
 {
